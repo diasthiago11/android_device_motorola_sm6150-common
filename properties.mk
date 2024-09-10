@@ -202,6 +202,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.incremental.enable=1
 
+# HWUI
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.use_hint_manager=true \
+    debug.hwui.target_cpu_time_percent=30
+
 # Logs
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.log.tag.OpenGLRenderer=S
