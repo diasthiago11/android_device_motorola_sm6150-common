@@ -327,6 +327,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.sensors.enable.mag_filter=true
 
+# Cache app compaction
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.device_config.activity_manager.use_compaction=true
+
 # Time
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.delta_time.enable=true
