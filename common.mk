@@ -17,8 +17,6 @@
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/motorola/sm6150-common/sm6150-common-vendor.mk)
 
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
