@@ -269,6 +269,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.netflix.bsp_rev=Q6150-17263-1
 
+# NFC
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.nfc.port=I2C
+
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
