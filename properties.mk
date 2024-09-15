@@ -1,6 +1,17 @@
 #
-# Properties for sm6150
+# Properties for liber
 #
+
+# Audio - ACDB
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.audio.calfile0=/vendor/etc/acdbdata/Bluetooth_cal.acdb \
+    persist.vendor.audio.calfile1=/vendor/etc/acdbdata/General_cal.acdb \
+    persist.vendor.audio.calfile2=/vendor/etc/acdbdata/Global_cal.acdb \
+    persist.vendor.audio.calfile3=/vendor/etc/acdbdata/Handset_cal.acdb \
+    persist.vendor.audio.calfile4=/vendor/etc/acdbdata/Hdmi_cal.acdb \
+    persist.vendor.audio.calfile5=/vendor/etc/acdbdata/Headset_cal.acdb \
+    persist.vendor.audio.calfile6=/vendor/etc/acdbdata/Speaker_cal.acdb \
+    persist.vendor.audio.calfile7=/vendor/etc/acdbdata/Codec_cal.acdb
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -77,7 +88,7 @@ PRODUCT_ODM_PROPERTIES += \
     vendor.audio.feature.hwdep_cal.enable=false \
     vendor.audio.feature.incall_music.enable=true \
     vendor.audio.feature.keep_alive.enable=true \
-    vendor.audio.feature.kpi_optimize.enable=false \
+    vendor.audio.feature.kpi_optimize.enable=true \
     vendor.audio.feature.maxx_audio.enable=false \
     vendor.audio.feature.multi_voice_session.enable=true \
     vendor.audio.feature.ras.enable=true \
@@ -104,8 +115,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.device.class_of_device=90,2,12 \
-    bluetooth.profile.a2dp.source.enabled?=true \
+    bluetooth.hardware.power.idle_cur_ma=0.01 \
+    bluetooth.hardware.power.operating_voltage_mv=3300 \
+    bluetooth.hardware.power.rx_cur_ma=9 \
+    bluetooth.hardware.power.tx_cur_ma=7 \
     bluetooth.profile.asha.central.enabled?=true \
+    bluetooth.profile.a2dp.source.enabled?=true \
     bluetooth.profile.avrcp.target.enabled?=true \
     bluetooth.profile.bas.client.enabled?=true \
     bluetooth.profile.gatt.enabled?=true \
@@ -122,22 +137,15 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     vendor.bluetooth.soc=cherokee
 
-# Dalvik
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat64.enabled=true \
-    dalvik.vm.heapmaxfree=8m \
-    dalvik.vm.heapminfree=512k \
-    dalvik.vm.heapsize=512m \
-    dalvik.vm.heapstartsize=8m \
-    dalvik.vm.heaptargetutilization=0.75
-
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.camera.expose.aux=1
+    persist.vendor.camera.expose.aux=1 \
+    persist.vendor.camera.physical.num=5
 
-# Charger
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.charger.enable_suspend=true
+# Chipset
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.soc.manufacturer=QTI \
+    ro.soc.model=SM7150
 
 # CNE
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -150,7 +158,23 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # Crypto
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.allow_encrypt_override=true \
-    ro.crypto.volume.filenames_mode=aes-256-cts
+    ro.crypto.volume.filenames_mode=aes-256-cts \
+    ro.crypto.dm_default_key.options_format.version=2 \
+    ro.crypto.volume.metadata.method=dm-default-key \
+    ro.crypto.volume.options=::v2
+
+# Cache app compaction
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.device_config.activity_manager.use_compaction=true
+
+# Dalvik
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat64.enabled=true \
+    dalvik.vm.heapmaxfree=8m \
+    dalvik.vm.heapminfree=512k \
+    dalvik.vm.heapsize=512m \
+    dalvik.vm.heapstartsize=8m \
+    dalvik.vm.heaptargetutilization=0.75
 
 # Disable Skia tracing by default
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -198,6 +222,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=0
 
+# HDR
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qcom.hdr.config=/system/vendor/etc/hdr_tm_config.xml
+
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.volte_avail_ovr=1 \
@@ -210,11 +238,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Incremental FS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.incremental.enable=1
-
-# HWUI
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.use_hint_manager=true \
-    debug.hwui.target_cpu_time_percent=30
 
 # Logs
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -240,15 +263,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.vendor.qti.sys.fw.bservice_age=5000 \
     ro.vendor.qti.sys.fw.bservice_enable=true \
-    ro.vendor.qti.sys.fw.bservice_limit=8
+    ro.vendor.qti.sys.fw.bservice_limit=7
 
 # Netflix
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.netflix.bsp_rev=Q6150-17263-1
-
-# NFC
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.nfc.port=I2C
 
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -260,10 +279,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so
+    ro.vendor.extension_library=libqti-perfd-client.so \
+    ro.vendor.perf-hal.ver=2.2 \
+    ro.vendor.perf.scroll_opt=true
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.vendor.qti.sys.fw.bg_apps_limit=10
+    ro.vendor.qti.sys.fw.bg_apps_limit=9
 
 # Qualcomm System Daemon
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -334,11 +355,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 # Sensor
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    persist.vendor.sensors.enable.mag_filter=true
-
-# Cache app compaction
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    persist.device_config.activity_manager.use_compaction=true
+    ro.vendor.sensors.mot_ltv=true \
+    persist.vendor.sensors.enable.mag_filter=true \
+    persist.vendor.sensors.hal_trigger_ssr=true \
+    persist.vendor.sensors.odl.adsp=true
 
 # Time
 PRODUCT_PROPERTY_OVERRIDES += \
