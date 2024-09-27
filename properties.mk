@@ -1,5 +1,5 @@
 #
-# Properties for liber
+# Properties for odessa
 #
 
 # Audio - ACDB
@@ -163,10 +163,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.metadata.method=dm-default-key \
     ro.crypto.volume.options=::v2
 
-# Cache app compaction
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    persist.device_config.activity_manager.use_compaction=true
-
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat64.enabled=true \
@@ -259,12 +255,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     media.stagefright.thumbnail.prefer_hw_codecs=true
 
-# Memory optimizations
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.vendor.qti.sys.fw.bservice_age=5000 \
-    ro.vendor.qti.sys.fw.bservice_enable=true \
-    ro.vendor.qti.sys.fw.bservice_limit=7
-
 # Netflix
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.netflix.bsp_rev=Q6150-17263-1
@@ -286,9 +276,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
     ro.vendor.perf-hal.ver=2.2 \
     ro.vendor.perf.scroll_opt=true
-
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.vendor.qti.sys.fw.bg_apps_limit=9
 
 # Qualcomm System Daemon
 PRODUCT_PROPERTY_OVERRIDES += \
