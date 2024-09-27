@@ -202,6 +202,7 @@ PRODUCT_PACKAGES += \
 # Common init scripts
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    fstab.zram \
     init.class_main.sh \
     init.crda.sh \
     init.mdm.sh \
