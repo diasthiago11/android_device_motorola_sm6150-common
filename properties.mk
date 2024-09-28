@@ -163,6 +163,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.metadata.method=dm-default-key \
     ro.crypto.volume.options=::v2
 
+# HWUI
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.use_hint_manager=true \
+    debug.hwui.target_cpu_time_percent=30
+
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat64.enabled=true \
