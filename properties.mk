@@ -359,7 +359,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     debug.sf.early.app.duration=16500000 \
     debug.sf.earlyGl.sf.duration=13500000 \
     debug.sf.earlyGl.app.duration=21000000 \
-    service.sf.prime_shader_cache=0 \
     debug.sf.enable_transaction_tracing=false
 
 # Sensor
