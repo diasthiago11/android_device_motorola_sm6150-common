@@ -276,7 +276,8 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # More Memory optimizations
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.vendor.qti.sys.fw.bg_apps_limit=8
+    ro.vendor.qti.sys.fw.bg_apps_limit=8 \
+    ro.vendor.qti.am.reschedule_service=true
 
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
