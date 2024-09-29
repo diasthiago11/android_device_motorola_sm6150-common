@@ -268,6 +268,16 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.nfc.port=I2C
 
+# Memory optimizations
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.vendor.qti.sys.fw.bservice_age=5000 \
+    ro.vendor.qti.sys.fw.bservice_enable=true \
+    ro.vendor.qti.sys.fw.bservice_limit=6
+
+# More Memory optimizations
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.vendor.qti.sys.fw.bg_apps_limit=8
+
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1
@@ -339,8 +349,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.use_color_management=true \
     ro.surface_flinger.wcg_composition_dataspace=143261696 \
     ro.surface_flinger.protected_contents=true \
-    ro.surface_flinger.clear_slots_with_set_layer_buffer=true \
-    ro.surface_flinger.uclamp.min=130
+    ro.surface_flinger.clear_slots_with_set_layer_buffer=true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     debug.sf.use_phase_offsets_as_durations=1 \
@@ -351,8 +360,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     debug.sf.earlyGl.sf.duration=13500000 \
     debug.sf.earlyGl.app.duration=21000000 \
     service.sf.prime_shader_cache=0 \
-    debug.sf.enable_transaction_tracing=false \
-    debug.sf.predict_hwc_composition_strategy=0
+    debug.sf.enable_transaction_tracing=false
 
 # Sensor
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
