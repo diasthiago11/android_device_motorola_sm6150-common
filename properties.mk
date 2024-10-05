@@ -163,11 +163,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.metadata.method=dm-default-key \
     ro.crypto.volume.options=::v2
 
-# HWUI
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.use_hint_manager=true \
-    debug.hwui.target_cpu_time_percent=30
-
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat64.enabled=true \
@@ -254,8 +249,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     av.offload.enable=true \
     ro.media.recorder-max-base-layer-fps=60 \
-    vendor.swvdec.log.level=1 \
-    vendor.vidc.debug.level=1
+    vendor.swvdec.log.level=0 \
+    vendor.vidc.debug.level=0
 
 PRODUCT_PRODUCT_PROPERTIES += \
     media.stagefright.thumbnail.prefer_hw_codecs=true
@@ -276,8 +271,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
 # More Memory optimizations
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.vendor.qti.sys.fw.bg_apps_limit=8 \
-    ro.vendor.qti.am.reschedule_service=true
+    ro.vendor.qti.sys.fw.bg_apps_limit=8
 
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
