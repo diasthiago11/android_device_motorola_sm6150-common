@@ -175,7 +175,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.comp_mask=0 \
     vendor.display.enable_posted_start_dyn=1 \
     vendor.display.enable_optimize_refresh=1 \
-    vendor.display.use_smooth_motion=1 \
+    vendor.display.use_smooth_motion=0 \
     vendor.display.disable_offline_rotator=1 \
     vendor.display.disable_hw_recovery_dump=1
 
