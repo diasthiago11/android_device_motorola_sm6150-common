@@ -165,6 +165,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     debug.hwui.skia_atrace_enabled=false
 
+# CacheAPP
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.device_config.activity_manager.use_compaction=true
+
+# logd
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.logd.kernel=false
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.vulkan=adreno \
