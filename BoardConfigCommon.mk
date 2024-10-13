@@ -52,7 +52,6 @@ TARGET_USES_UEFI := true
 
 # Jemalloc
 MALLOC_SVELTE := true
-MALLOC_SVELTE_FOR_LIBC32 := true
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
