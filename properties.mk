@@ -77,7 +77,7 @@ PRODUCT_ODM_PROPERTIES += \
     vendor.audio.feature.hwdep_cal.enable=false \
     vendor.audio.feature.incall_music.enable=true \
     vendor.audio.feature.keep_alive.enable=true \
-    vendor.audio.feature.kpi_optimize.enable=true \
+    vendor.audio.feature.kpi_optimize.enable=false \
     vendor.audio.feature.maxx_audio.enable=false \
     vendor.audio.feature.multi_voice_session.enable=true \
     vendor.audio.feature.ras.enable=true \
@@ -147,10 +147,12 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # Crypto
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.allow_encrypt_override=true \
-    ro.crypto.volume.filenames_mode=aes-256-cts \
-    ro.crypto.dm_default_key.options_format.version=2 \
-    ro.crypto.volume.metadata.method=dm-default-key \
-    ro.crypto.volume.options=::v2
+    ro.crypto.volume.filenames_mode=aes-256-cts
+
+# HWUI
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.use_hint_manager=true \
+    debug.hwui.target_cpu_time_percent=30
 
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -274,9 +276,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.vendor.perf-hal.ver=2.2 \
-    ro.vendor.perf.scroll_opt=true
+    ro.vendor.extension_library=libqti-perfd-client.so
 
 # Qualcomm System Daemon
 PRODUCT_PROPERTY_OVERRIDES += \
