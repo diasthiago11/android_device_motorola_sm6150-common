@@ -155,6 +155,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat64.enabled=true \
+    dalvik.vm.systemuicompilerfilter=speed \
     dalvik.vm.heapmaxfree=8m \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapsize=512m \
